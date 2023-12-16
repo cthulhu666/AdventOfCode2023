@@ -11,7 +11,7 @@ type Deck = A.Array Int Card
 type Score = A.Array Int Int
 
 solve :: Deck -> Int
-solve deck = sum $ A.elems $ foldl (\s n -> play deck s n) scr [i..j]
+solve deck = sum . A.elems $ foldl (\s n -> play deck s n) scr [i..j]
     where scr = A.array b [(x, 1) | x <- [i..j]]
           b = A.bounds deck
           (i,j) = b
